@@ -13,7 +13,7 @@ class SampleTest extends TestCase {
         $date->setDate(1984, 9, 8);
 
         $today = new \DateTime;
-
+         #   
         $sample = new \App\Sample($date, $today);
         $this->assertEquals(34, $sample->getAge());
     }
