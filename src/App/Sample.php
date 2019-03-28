@@ -20,7 +20,8 @@ class Sample {
         $this->dob = $dob;
     }
 
-    public function getAge() {
+    public function getAge() 
+    {
         return $this->currentYear->diff($this->dob)->format("%y");
     }
 
