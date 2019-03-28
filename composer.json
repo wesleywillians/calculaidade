@@ -1,0 +1,20 @@
+{
+    "name": "wesleywillians/projeto-exemplo-cloudbuild",
+    "type": "project",
+    "require": {
+        "phpunit/phpunit": "^7.5"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Wesley Willians",
+            "email": "wesleywillians@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\":"src/",
+            "Tests\\":"tests/"
+          }
+    }
+}
