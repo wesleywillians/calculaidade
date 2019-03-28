@@ -7,4 +7,4 @@ RUN curl -sS https://getcomposer.org/installer | php && \
     composer install && \
     ln -s public html
 
-RUN php ./vendor/bin/phpunit -c phpunit.xml
+RUN vendor/bin/phpunit
