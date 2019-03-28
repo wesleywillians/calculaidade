@@ -1,9 +1,8 @@
 <?php
 
-namespace Tests\App;
+namespace App;
 
 use \PHPUnit\Framework\TestCase;
-use \App;
 
 class SampleTest extends TestCase {
 
