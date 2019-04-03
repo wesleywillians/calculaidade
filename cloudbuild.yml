@@ -21,14 +21,15 @@ steps:
   name: gcr.io/cloud-builders/kubectl
   args: ['apply','-f','k8s/nginx-deployment.yml']
 
+  env:
+    - CLOUDSDK_COMPUTE_ZONE=us-central1-a	
+    - CLOUDSDK_CONTAINER_CLUSTER=test
+
+
   
 # Images
 images:
   - gcr.io/$PROJECT_ID/init:$SHORT_SHA
-
-  env:
-    - CLOUDSDK_COMPUTE_ZONE=us-central1-a	
-    - CLOUDSDK_CONTAINER_CLUSTER=test
 
 # Tags
 tags:
