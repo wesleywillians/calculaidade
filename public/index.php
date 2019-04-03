@@ -10,6 +10,7 @@ $sample = new App\Sample($date, $today);
 
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

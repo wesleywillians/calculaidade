@@ -25,7 +25,6 @@ steps:
     - CLOUDSDK_COMPUTE_ZONE=us-central1-a	
     - CLOUDSDK_CONTAINER_CLUSTER=test
 
-
   
 # Images
 images:
