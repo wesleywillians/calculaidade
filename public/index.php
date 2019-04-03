@@ -7,7 +7,7 @@ $date->setDate(1984, 9, 8);
 $today = new \DateTime;
 
 $sample = new App\Sample($date, $today);
-#
+##
 ?>
 
 
@@ -20,6 +20,6 @@ $sample = new App\Sample($date, $today);
     <title>My Age</title>
 </head>
 <body>
-    <h1>My Age is: <?=$sample->getAge();?>
+    <h1>My AGE  is: <?=$sample->getAge();?>
 </body>
 </html>
