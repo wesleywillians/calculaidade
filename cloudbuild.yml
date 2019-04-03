@@ -8,11 +8,12 @@ steps:
 
 # Push Images
 - id: Pushing  Image
-  name: ubuntu
+  name: gcr.io/cloud-builders/docker
+  entrypoint: 'bash'
   args: 
   - '-c'
   - |
-    [[ "$BRANCH_NAME" == "master" ]] && docker push gcr.io/$PROJECT_ID/init:$SHORT_SHA || return 0
+    [[ "$BRANCH_NAME" == "master" ]] && push gcr.io/$PROJECT_ID/init:$SHORT_SHA || return 0
 
 
   # args: ['push','gcr.io/$PROJECT_ID/init:$SHORT_SHA']
