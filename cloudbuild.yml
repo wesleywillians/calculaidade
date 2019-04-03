@@ -9,29 +9,35 @@ steps:
 # Push Images
 - id: Pushing  Image
   name: gcr.io/cloud-builders/docker
-  args: ['push','gcr.io/$PROJECT_ID/init:$SHORT_SHA']
+  args: 
+  - '-c'
+  - |
+    [[ "$BRANCH_NAME" == "master" ]] && push gcr.io/$PROJECT_ID/init:$SHORT_SHA || return 0
 
-# Update Image Tags
-- id: 'Setting Init Image Tag'
-  name: ubuntu
-  args: ['bash','-c','sed -i "s,INIT_IMAGE_NAME,gcr.io/$PROJECT_ID/init:$SHORT_SHA," k8s/nginx-deployment.yml']
 
-# Update Deployment
-- id: Updating Deployment
-  name: gcr.io/cloud-builders/kubectl
-  args: ['apply','-f','k8s/nginx-deployment.yml']
+  # args: ['push','gcr.io/$PROJECT_ID/init:$SHORT_SHA']
 
-  env:
-    - CLOUDSDK_COMPUTE_ZONE=us-central1-a	
-    - CLOUDSDK_CONTAINER_CLUSTER=test
+# # Update Image Tags
+# - id: 'Setting Init Image Tag'
+#   name: ubuntu
+#   args: ['bash','-c','sed -i "s,INIT_IMAGE_NAME,gcr.io/$PROJECT_ID/init:$SHORT_SHA," k8s/nginx-deployment.yml']
+
+# # Update Deployment
+# - id: Updating Deployment
+#   name: gcr.io/cloud-builders/kubectl
+#   args: ['apply','-f','k8s/nginx-deployment.yml']
+
+#   env:
+#     - CLOUDSDK_COMPUTE_ZONE=us-central1-a	
+#     - CLOUDSDK_CONTAINER_CLUSTER=test
 
   
-# Images
-images:
-  - gcr.io/$PROJECT_ID/init:$SHORT_SHA
+# # Images
+# images:
+#   - gcr.io/$PROJECT_ID/init:$SHORT_SHA
 
-# Tags
-tags:
-  - master
-  - dev
-  - init
+# # Tags
+# tags:
+#   - master
+#   - dev
+#   - init
