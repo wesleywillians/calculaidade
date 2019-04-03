@@ -7,7 +7,7 @@ steps:
   waitFor: ['-']
 
 # Push Images
-- id: Pushing Image
+- id: Pushing  Image
   name: gcr.io/cloud-builders/docker
   args: ['push','gcr.io/$PROJECT_ID/init:$SHORT_SHA']
 
@@ -25,6 +25,10 @@ steps:
 # Images
 images:
   - gcr.io/$PROJECT_ID/init:$SHORT_SHA
+
+  env:
+    - CLOUDSDK_COMPUTE_ZONE=us-central1-a	
+    - CLOUDSDK_CONTAINER_CLUSTER=test
 
 # Tags
 tags:
